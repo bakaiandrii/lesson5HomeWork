@@ -1,0 +1,6 @@
+<form #post="ngForm">
+  <select  (click)="selectedPost()" name="selectedQuantity" id="aantal" class="form-control" [(ngModel)]="selectedQuantity.id">
+    <option  *ngFor="let option of posts" [value]="option.id">{{option.id}}</option>
+  </select>
+</form>
+<app-post *ngIf="selectedQuantity" [post]="selectPost"></app-post>

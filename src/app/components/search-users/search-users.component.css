@@ -1,0 +1,9 @@
+form{
+  justify-content: center;
+}
+.classForm{
+  margin: 10px auto;
+}
+.card-deck{
+  display: flex;
+}

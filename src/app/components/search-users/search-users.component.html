@@ -1,0 +1,17 @@
+<div class="classForm">
+<form #myForm="ngForm" (ngSubmit)="searchUSer(myForm)" class="form-inline my-2 my-lg-0">
+  <input [(ngModel)]="user.id" #id="ngModel" required name="id" class="form-control mr-sm-2" type="number" placeholder="Search id" aria-label="Search">
+  <input [(ngModel)]="user.email" #email="ngModel" required name="email" class="form-control mr-sm-2" type="text" placeholder="Search email" aria-label="Search">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+</div>
+<div class="card-deck">
+  <app-user *ngFor="let u of users" [user]="u" ></app-user>
+</div>
+
+
+<!--<form >-->
+<!--  <input type="number" [(ngModel)]="user.id" #id="ngModel" required name="id">-->
+<!--  <input [(ngModel)]="user.name" #name="ngModel" required name="name">-->
+<!--  <button (click)="search()" [disabled]="!id.valid && !name.valid">search</button>-->
+<!--</form>-->
