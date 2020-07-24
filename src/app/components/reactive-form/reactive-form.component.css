@@ -1,0 +1,6 @@
+input{
+  width: 350px;
+}
+.col-sm-10.error{
+  color: red;
+}

@@ -2,13 +2,14 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './components/app/app.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import { SearchUsersComponent } from './components/search-users/search-users.component';
 import { UserComponent } from './components/user/user.component';
 import { SelectedPostComponent } from './components/selected-post/selected-post.component';
 import { PostComponent } from './components/post/post.component';
+import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PostComponent } from './components/post/post.component';
     SearchUsersComponent,
     UserComponent,
     SelectedPostComponent,
-    PostComponent
+    PostComponent,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,9 @@ import { PostComponent } from './components/post/post.component';
     RouterModule.forRoot([
       {path: 'users', component: SearchUsersComponent},
       {path: 'posts', component: SelectedPostComponent},
+      {path: 'reactive/form', component: ReactiveFormComponent},
     ]),
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

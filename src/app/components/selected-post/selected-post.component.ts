@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {PostService} from '../../service/post.service';
-import {NgForm} from '@angular/forms';
 import {Post} from '../../models/Post';
 
 @Component({
@@ -22,8 +21,9 @@ export class SelectedPostComponent {
   }
 
 
-
   selectedPost(): void {
-    this.postService.getPostById(this.selectedQuantity.id).subscribe( value => this.selectPost = value);
+    if (this.selectedQuantity.id !== undefined) {
+      this.postService.getPostById(this.selectedQuantity.id).subscribe(value => this.selectPost = value);
+    }
   }
 }
