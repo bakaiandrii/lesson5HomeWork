@@ -1,0 +1,8 @@
+<h2>Some question ?</h2>
+<h3>Agree: {{agreed}}, Disagree: {{disagreed}}</h3>
+
+<app-user-vote
+  *ngFor="let v of voters"
+  [user]="v"
+  (voted)="onVoted($event)"
+></app-user-vote>

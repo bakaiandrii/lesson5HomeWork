@@ -1,0 +1,3 @@
+<h4>{{user.id}}. {{user.name}}</h4>
+<button (click)="vote(true)"  [disabled]="didVote" class="btn btn-success">Agree</button>
+<button (click)="vote(false)" [disabled]="didVote" class="btn btn-danger">Disagree</button>

@@ -1,0 +1,5 @@
+<div *ngFor="let user of users">
+  {{user.id}}.
+  {{user.username | more: 'test'}}
+  {{user.id | currency: 'UAH':'symbol-narrow'}}
+</div>

@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {DataTransferService} from '../../service/data-transfer.service';
+import {User} from '../../models/User';
 
 @Component({
   selector: 'app-reactive-form',
@@ -12,7 +14,8 @@ export class ReactiveFormComponent {
 
   // email: FormControl = new FormControl('');
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private dataTransferService: DataTransferService) {
     this.form = new FormGroup({
         login: new FormControl('', [Validators.required,]),
         password: new FormControl(''),
@@ -26,9 +29,7 @@ export class ReactiveFormComponent {
   }
 
 
-  save(form: FormGroup): void {
-    console.log(form.controls.login.value);
-  }
+
 
   passValidator(form: FormGroup): null | object {
     const {value: password} = form.controls.password;
@@ -42,5 +43,10 @@ export class ReactiveFormComponent {
     } else if ( login.length >= 10 ){
       return {loginErrorMax10: true};
     }
+  }
+
+  save(form: FormGroup): void {
+    this.dataTransferService.changeState({name: form.controls.login.value});
+    console.log(this.dataTransferService.getState());
   }
 }
